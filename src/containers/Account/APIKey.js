@@ -2,11 +2,11 @@ import React from "react";
 import {
   Segment,
   Header,
-  Icon,
+  // Icon,
   Dimmer,
   Loader,
   Image,
-  Button,
+  // Button,
   Message
 } from "semantic-ui-react";
 import Shell from "./Shell";

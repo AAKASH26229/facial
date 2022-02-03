@@ -13,7 +13,7 @@ import {
   Dimmer
 } from "semantic-ui-react";
 import axios from "axios";
-import { authAxios } from "../utils";
+// import { authAxios } from "../utils";
 import { fileUploadURL, facialRecognitionURL } from "../constants";
 import FaceIMG from "../assets/images/face.png";
 import ShortParagraphIMG from "../assets/images/short_paragraph.png";
@@ -62,7 +62,7 @@ class Demo extends React.Component {
     formData.append("file", file);
     this.setState({ loading: true });
     const config = {
-      onUploadProgress: function(progressEvent) {
+      onUploadProgress: function (progressEvent) {
         const progress = Math.round(
           (100 * progressEvent.loaded) / progressEvent.total
         );

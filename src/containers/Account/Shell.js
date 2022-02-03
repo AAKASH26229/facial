@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Container, Segment, Header, Menu } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
