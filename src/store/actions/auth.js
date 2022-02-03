@@ -61,15 +61,18 @@ export const authLogin = (username, password) => {
 };
 
 export const authSignup = (username, email, password1, password2) => {
+  console.log(signupURL, username, password1, password2)
   return dispatch => {
     dispatch(authStart());
     axios
-      .post(signupURL, {
-        username,
-        email,
-        password1,
-        password2
-      })
+      .post(signupURL,
+        {
+          "username": username,
+          "email": email,
+          "password1": password1,
+          "password2": password2
+        }
+      )
       .then(res => {
         const token = res.data.key;
         const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
@@ -77,9 +80,11 @@ export const authSignup = (username, email, password1, password2) => {
         localStorage.setItem("expirationDate", expirationDate);
         dispatch(authSuccess(token));
         dispatch(checkAuthTimeout(3600));
+        // console.log(res.data)
       })
       .catch(err => {
-        dispatch(authFail(err.response.data.non_field_errors[0]));
+        console.log(err)
+        // dispatch(authFail(err.response.data.non_field_errors[0]));
       });
   };
 };
