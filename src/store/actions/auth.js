@@ -55,7 +55,8 @@ export const authLogin = (username, password) => {
         dispatch(checkAuthTimeout(3600));
       })
       .catch(err => {
-        dispatch(authFail(err.response.data.non_field_errors[0]));
+        console.log(err)
+        // dispatch(authFail(err.response.data.non_field_errors[0]));
       });
   };
 };
