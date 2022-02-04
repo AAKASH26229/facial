@@ -1,6 +1,6 @@
 let DEBUG = true;
-// let host = "https://facial-sass.herokuapp.com";
-let host = "http://localhost:8000"
+let host = "https://facial-sass.herokuapp.com";
+// let host = "http://localhost:8000"
 let stripePublishKey = "pk_test_51KJiJWSHLi0vJZWhEMxERjgJZmYh84cFgzIqq5cxBvo2o4RSbYsaQ4I6ytl34bmXH9c6uQoIuaQPR97WX5fhAdXC00JGlWvnCh";
 if (DEBUG === false) {
   host = "";
