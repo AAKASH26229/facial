@@ -55,14 +55,13 @@ export const authLogin = (username, password) => {
         dispatch(checkAuthTimeout(3600));
       })
       .catch(err => {
-        console.log(err)
         // dispatch(authFail(err.response.data.non_field_errors[0]));
+        dispatch(authFail("Please enter correct credentials"));
       });
   };
 };
 
 export const authSignup = (username, email, password1, password2) => {
-  console.log(signupURL, username, password1, password2)
   return dispatch => {
     dispatch(authStart());
     axios
@@ -84,8 +83,8 @@ export const authSignup = (username, email, password1, password2) => {
         // console.log(res.data)
       })
       .catch(err => {
-        console.log(err)
         // dispatch(authFail(err.response.data.non_field_errors[0]));
+        dispatch(authFail("Something went wrong!"));
       });
   };
 };
