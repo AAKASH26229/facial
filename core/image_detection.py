@@ -9,6 +9,18 @@ execution_path = settings.MEDIA_ROOT
 face_detector = os.path.join(
     settings.BASE_DIR, "haarcascade_frontalface_default.xml")
 
+def read_image(path=None, stream=None, url=None):
+    if path is not None:
+        image = cv2.imread(path)
+    else:
+        if url is not None:
+            response = urllib.request.urlopen(url)
+            data_temp = response.read()
+        elif stream is not None:
+            data_temp = stream.read()
+        image = np.asarray(bytearray(data_temp), dtype="uint8")
+        image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    return image
 
 def detect_faces(image_path=None, url=None):
     default = {"safely_executed": False}
@@ -36,15 +48,3 @@ def detect_faces(image_path=None, url=None):
     return default
 
 
-def read_image(path=None, stream=None, url=None):
-    if path is not None:
-        image = cv2.imread(path)
-    else:
-        if url is not None:
-            response = urllib.request.urlopen(url)
-            data_temp = response.read()
-        elif stream is not None:
-            data_temp = stream.read()
-        image = np.asarray(bytearray(data_temp), dtype="uint8")
-        image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-    return image
